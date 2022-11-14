@@ -1,22 +1,13 @@
 import NavItem from "./NavItem";
 
 const Navbar = (props) => {
-	const { loggedIn } = props;
-
-	let value = true;
-	let userInfo = "";
-
-	if (value) {
-		userInfo = <NavItem item="User" />;
-	} else {
-		userInfo = <NavItem item="Login" />;
-	}
+	const navItems = ["Home", "Contact", "others", "A", "Profile"];
 
 	return (
 		<>
-			<NavItem item="Home" />
-			<NavItem item="Menu" />
-			{userInfo}
+			{navItems.map((item) => (
+				<NavItem key={item} item={item} />
+			))}
 		</>
 	);
 };
