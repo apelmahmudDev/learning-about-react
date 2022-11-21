@@ -1,6 +1,11 @@
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserProvider";
 import Button from "./ui/Button";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
+	const value = useContext(UserContext);
+	console.log(value);
+
 	return (
 		<header>
 			<nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
@@ -39,20 +44,22 @@ const Navbar = () => {
 					</button>
 					<div className="hidden w-full md:block md:w-auto" id="navbar-default">
 						<ul className="flex flex-col items-center p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-							{["Home", "About", "Services", "Contact"].map((navItem) => (
-								<li>
-									<a
-										href="/#"
-										className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-										aria-current="page"
-									>
-										{navItem}
-									</a>
-								</li>
-							))}
+							{["Home", "About", "Services", "Contact", user.number].map(
+								(navItem) => (
+									<li>
+										<a
+											href="/#"
+											className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+											aria-current="page"
+										>
+											{navItem}
+										</a>
+									</li>
+								)
+							)}
 
 							<li>
-								<Button label="Login" />
+								<Button label={user.name} />
 							</li>
 						</ul>
 					</div>

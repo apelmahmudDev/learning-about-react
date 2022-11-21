@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./ui/Button";
 
 const Service = (props) => {
 	const { content, img, btnLabel, items } = props.service;
@@ -15,6 +16,7 @@ const Service = (props) => {
 				<button className="text-secondary font-semibold text-sm uppercase bg-light px-6 py-4">
 					{btnLabel}
 				</button>
+				<Button label={props.userNumber} />
 			</div>
 
 			<div className="relative w-full max-h-72">

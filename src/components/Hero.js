@@ -1,7 +1,7 @@
 import BannerImg from "../assets/banner.jpg";
 import Button from "./ui/Button";
 
-const Hero = () => {
+const Hero = ({ user }) => {
 	return (
 		<section
 			className="h-screen bg-slate-100 flex items-center justify-center text-center bg-no-repeat bg-center bg-cover after:content-[''] after:absolute after:bg-gradient-to-t after:from-black after:w-full after:h-full after:z-5"
@@ -20,8 +20,18 @@ const Hero = () => {
 					technologies residential for over 40 years
 				</p>
 
-				<div className="mt-8">
-					<Button label="Met our team" size="large" />
+				<div className="flex items-center gap-4 justify-center">
+					<div className="mt-8">
+						<Button label="Met our team" size="large" />
+					</div>
+
+					<div className="w-[45px] h-[45px] rounded-full overflow-hidden">
+						<img
+							className="d-block w-full h-full"
+							src={user.img}
+							alt="user name"
+						/>
+					</div>
 				</div>
 			</div>
 		</section>
