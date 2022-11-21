@@ -1,12 +1,13 @@
-import Form from "./components/Form";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+import Services from "./components/Services";
 
 function App(props) {
-	const defaultStyle = { margin: "10px", padding: "5px" };
-
 	return (
-		<div style={defaultStyle}>
-			<h1>Form</h1>
-			<Form />
+		<div>
+			<Navbar />
+			<Hero />
+			<Services />
 		</div>
 	);
 }
