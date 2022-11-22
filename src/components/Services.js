@@ -7,11 +7,7 @@ const Services = (props) => {
 			<div className="container">
 				<div className="grid lg:grid-cols-2 gap-8">
 					{services.map((item) => (
-						<Service
-							key={item.id}
-							service={item}
-							userNumber={props.user.number}
-						/>
+						<Service key={item.id} service={item} />
 					))}
 				</div>
 			</div>

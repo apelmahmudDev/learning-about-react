@@ -1,7 +1,16 @@
+import { useContext } from "react";
 import BannerImg from "../assets/banner.jpg";
+import { ColorContext } from "../contexts/ColorProvider";
+import { UserContext } from "../contexts/UserProvider";
 import Button from "./ui/Button";
 
-const Hero = ({ user }) => {
+const Hero = () => {
+	const {
+		userProfile: { img: userImage },
+	} = useContext(UserContext);
+
+	const { bgColor } = useContext(ColorContext);
+
 	return (
 		<section
 			className="h-screen bg-slate-100 flex items-center justify-center text-center bg-no-repeat bg-center bg-cover after:content-[''] after:absolute after:bg-gradient-to-t after:from-black after:w-full after:h-full after:z-5"
@@ -11,7 +20,10 @@ const Hero = ({ user }) => {
 				<h6 className="text-2xl font-extrabold text-white">
 					Educated & Experienced
 				</h6>
-				<h1 className="text-4xl sm:text-7xl font-extrabold uppercase my-3 text-white">
+				<h1
+					className="text-4xl sm:text-7xl font-extrabold uppercase my-3 text-white"
+					style={{ backgroundColor: bgColor }}
+				>
 					LAWN STYLIST
 				</h1>
 				<p className="texl-lg font-extrabold text-white">
@@ -28,7 +40,7 @@ const Hero = ({ user }) => {
 					<div className="w-[45px] h-[45px] rounded-full overflow-hidden">
 						<img
 							className="d-block w-full h-full"
-							src={user.img}
+							src={userImage}
 							alt="user name"
 						/>
 					</div>

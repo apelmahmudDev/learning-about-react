@@ -9,7 +9,11 @@ const UserProvider = ({ children }) => {
 		img: "https://plus.unsplash.com/premium_photo-1664285652161-e25579afdccd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8bWVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
 	});
 
-	return <UserContext.Provider value="Anik">{children}</UserContext.Provider>;
+	return (
+		<UserContext.Provider value={{ userProfile, setUserProfile }}>
+			{children}
+		</UserContext.Provider>
+	);
 };
 
 export default UserProvider;

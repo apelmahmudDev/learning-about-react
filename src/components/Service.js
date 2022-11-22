@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../contexts/UserProvider";
 import Button from "./ui/Button";
 
 const Service = (props) => {
 	const { content, img, btnLabel, items } = props.service;
+	const {
+		userProfile: { number },
+	} = useContext(UserContext);
 
 	return (
 		<div className="flex gap-2 sm:max-h-72 flex-col sm:flex-row z-10 group/elements group/item">
@@ -16,7 +20,7 @@ const Service = (props) => {
 				<button className="text-secondary font-semibold text-sm uppercase bg-light px-6 py-4">
 					{btnLabel}
 				</button>
-				<Button label={props.userNumber} />
+				<Button label={number} />
 			</div>
 
 			<div className="relative w-full max-h-72">
